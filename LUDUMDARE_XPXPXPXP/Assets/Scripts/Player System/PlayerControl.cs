@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
 {
     public float speed;
     private CharacterController controller;
+    public int HP;
 
 
     private void Start()
@@ -26,5 +27,20 @@ public class PlayerControl : MonoBehaviour
         moveDir.y -= 9.81f * Time.deltaTime;
 
         controller.Move(moveDir * speed * Time.deltaTime);
+
+        if (HP <= 0)
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
+
+    public void damageHP(int damage)
+    {
+        HP -= damage;
+    }
+
+    public void addHP(int heal)
+    {
+        HP += heal;
     }
 }

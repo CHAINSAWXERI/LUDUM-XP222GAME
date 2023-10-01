@@ -29,8 +29,8 @@ public class Gun : MonoBehaviour
         }
     }
 
-    public void TakeBoxAm()
+    public void TakeBoxAm(int amun)
     {
-        _amunitionGun = _amunitionGun + 100;
+        _amunitionGun = _amunitionGun + amun;
     }
 }

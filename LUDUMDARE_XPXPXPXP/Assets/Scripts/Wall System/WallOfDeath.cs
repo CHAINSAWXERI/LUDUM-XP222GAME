@@ -20,12 +20,12 @@ public class WallOfDeath : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-            if (collision != null)
+        if (collision != null)
+        {
+            if (collision.collider.CompareTag("Player"))
             {
-                if (collision.collider.CompareTag("Player"))
-                {
-                    SceneManager.LoadScene(1);
-                }
+                SceneManager.LoadScene(1);
             }
+        }
     }
 }
