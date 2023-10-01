@@ -1,12 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WallOfDeath : MonoBehaviour
 {
-    public int speed;
+    [SerializeField] private int speed;
+
+    private Vector3 direction;
+
     void Update()
     {
-        transform.position += new Vector3(1 + Time.deltaTime * speed, 4, 7);
+        MoveWall();
+    }
+
+    private void MoveWall()
+    {
+        direction = new Vector3(speed * Time.deltaTime, 0,0);
+        transform.Translate(direction);
     }
 }
