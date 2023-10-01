@@ -31,14 +31,10 @@ public class Bullet : MonoBehaviour
             _timeLeft -= Time.deltaTime;
             if (collision != null)
             {
+                Destroy(gameObject);
                 if (collision.collider.CompareTag("Enemy"))
                 {
                     collision.collider.GetComponent<Enemy>().TakeDamageGun(_damage);
-                    Destroy(gameObject);
-                }
-                if (collision.collider.CompareTag("Wall"))
-                {
-                    Destroy(gameObject);
                 }
             }
         }
