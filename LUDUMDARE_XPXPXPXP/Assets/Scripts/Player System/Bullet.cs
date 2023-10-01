@@ -24,17 +24,26 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.forward * Speed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
         if (_timeLeft > 0)
         {
             _timeLeft -= Time.deltaTime;
-            if (collision != null)
+            if (collider != null)
             {
-                Destroy(gameObject);
-                if (collision.collider.CompareTag("Enemy"))
+                if (collider.CompareTag("Enemy"))
                 {
-                    collision.collider.GetComponent<Enemy>().TakeDamageGun(_damage);
+                    collider.GetComponent<Enemy>().TakeDamageGun(_damage);
+                    Destroy(gameObject);
+                }
+                if (collider.CompareTag("Player"))
+                {
+                    collider.GetComponent<PlayerControl>().damageHP(_damage);
+                    Destroy(gameObject);
+                }
+                if (collider.CompareTag("Wall"))
+                {
+                    Destroy(gameObject);
                 }
             }
         }
@@ -43,5 +52,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 
 }
