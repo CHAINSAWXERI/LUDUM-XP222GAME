@@ -28,6 +28,7 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
+        text.text = "Bullets: " + bulletsInMagazine + "/" + _bulletsAmount;
         if (_timeShot <= 0)
         {
             if (Input.GetMouseButton(0) && bulletsInMagazine > 0 && !isShooting)

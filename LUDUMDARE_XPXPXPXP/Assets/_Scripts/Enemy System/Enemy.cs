@@ -1,3 +1,4 @@
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -7,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private Rigidbody bulletPrefab;
     [SerializeField] private float shotDelayTime;
+    [SerializeField] private Collider Col;
 
     [field: SerializeField] public float MaxHP { get; private set; }
 
@@ -88,6 +90,7 @@ public class Enemy : MonoBehaviour
     {
         anim.Play(HashedAnimationsData.Death);
         isDead = true;
+        Col.enabled = false;
     }
 
     private void OnDrawGizmos()
