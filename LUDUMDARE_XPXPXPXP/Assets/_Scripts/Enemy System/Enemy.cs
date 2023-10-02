@@ -8,7 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private Rigidbody bulletPrefab;
     [SerializeField] private float shotDelayTime;
-    [SerializeField] private Collider Col;
+    
+    private Collider Col;
 
     [field: SerializeField] public float MaxHP { get; private set; }
 
@@ -27,6 +28,8 @@ public class Enemy : MonoBehaviour
         curHP = MaxHP;
 
         anim = GetComponent<Animator>();
+        
+        Col = GetComponent<Collider>();
 
         SchetchikEnemy = FindObjectOfType<PlayerControl>();
 
