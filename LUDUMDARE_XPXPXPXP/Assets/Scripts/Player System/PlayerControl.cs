@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
+    [SerializeField] TMP_Text text;
     public float speed;
     private CharacterController controller;
     public int HP;
@@ -12,6 +14,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
+        text.text = "Lives: " + HP;
         controller = GetComponent<CharacterController>();
         Cursor.lockState= CursorLockMode.Locked;
         Cursor.visible= false;
@@ -37,10 +40,12 @@ public class PlayerControl : MonoBehaviour
     public void damageHP(int damage)
     {
         HP -= damage;
+        text.text = "Lives: " + HP;
     }
 
     public void addHP(int heal)
     {
         HP += heal;
+        text.text = "Lives: " + HP;
     }
 }

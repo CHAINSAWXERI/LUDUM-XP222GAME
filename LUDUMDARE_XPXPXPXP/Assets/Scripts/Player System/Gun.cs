@@ -1,9 +1,11 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
     public int _amunitionGun;
+    [SerializeField] TMP_Text text;
     [SerializeField] GameObject ShotFlash;
     [SerializeField] public GameObject _bullet;
     [SerializeField] public Transform _shotpoint;
@@ -14,6 +16,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
+        text.text = "Bullets: " + _amunitionGun;
         ShotFlash.SetActive(false);
     }
 
@@ -25,6 +28,7 @@ public class Gun : MonoBehaviour
             if (Input.GetMouseButton(0) & (_amunitionGun > 0))
             {
                 _amunitionGun--;
+                text.text = "Bullets: " + _amunitionGun;
                 ShotFlash.SetActive(true);
                 Instantiate(_bullet, _shotpoint.position, transform.rotation);
                 _timeShot = _starttumeShot;
@@ -45,5 +49,6 @@ public class Gun : MonoBehaviour
     public void TakeBoxAm(int amun)
     {
         _amunitionGun = _amunitionGun + amun;
+        text.text = "Bullets: " + _amunitionGun;
     }
 }
