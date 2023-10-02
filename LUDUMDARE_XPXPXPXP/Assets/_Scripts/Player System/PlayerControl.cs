@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour
     private CharacterController controller;
     public int HP;
     public int SchetchikEnemy;
-    //private int x;
+    public int x = 0;
 
 
     private void Start()
@@ -32,28 +32,28 @@ public class PlayerControl : MonoBehaviour
 
         Vector3 moveDir = transform.forward * verInput + transform.right * horInput;
 
-        //moveDir.y -= 9.81f * Time.deltaTime;
+        moveDir.y -= 9.81f * Time.deltaTime;
 
-        controller.Move(moveDir * speed * Time.deltaTime);
+        controller.SimpleMove(moveDir * speed * Time.deltaTime);
 
         if (HP <= 0)
         {
             SceneManager.LoadScene(DeatheScene);
         }
-        /*
+
         if (SchetchikEnemy <= x)
         {
             Portal.SetActive(true);
         }
-        */
+
 
     }
-/*
+
     public void EnemyKills()
     {
         x = x + 1;
     }
-*/
+
     public void damageHP(int damage)
     {
         HP -= damage;

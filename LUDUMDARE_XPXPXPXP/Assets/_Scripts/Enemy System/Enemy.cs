@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     private float curHP;
     private bool isPlayerEnteredTriggerZone = false;
     private bool isDead = false;
+    public PlayerControl SchetchikEnemy;
 
     private Transform player;
     private Animator anim;
@@ -26,6 +27,8 @@ public class Enemy : MonoBehaviour
         curHP = MaxHP;
 
         anim = GetComponent<Animator>();
+
+        SchetchikEnemy = FindObjectOfType<PlayerControl>();
 
         player = GameObject
             .FindGameObjectWithTag("Player")
@@ -91,6 +94,7 @@ public class Enemy : MonoBehaviour
         anim.Play(HashedAnimationsData.Death);
         isDead = true;
         Col.enabled = false;
+        SchetchikEnemy.EnemyKills();
     }
 
     private void OnDrawGizmos()

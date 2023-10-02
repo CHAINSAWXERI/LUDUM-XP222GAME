@@ -7,7 +7,6 @@ using static UnityEngine.GraphicsBuffer;
 public class Bullet : MonoBehaviour
 {
     public Rigidbody rb;
-    public PlayerControl SchetchikEnemy;
     public float Speed;
     public float _lifetime;
     public int _damage = 1;
@@ -35,7 +34,6 @@ public class Bullet : MonoBehaviour
                 if (collider.CompareTag("Enemy"))
                 {
                     collider.GetComponent<Enemy>().TakeDamageGun(_damage);
-                    //SchetchikEnemy.EnemyKills();
                     Destroy(gameObject);
                 }
                 if (collider.CompareTag("Player"))

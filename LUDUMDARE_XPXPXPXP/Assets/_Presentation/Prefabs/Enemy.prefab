@@ -283,7 +283,7 @@ Transform:
   m_GameObject: {fileID: 2468578267188685991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.3106322, y: 0.69404507, z: 9.810202}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6177007004395792003}
@@ -328,7 +328,9 @@ MonoBehaviour:
   firePoint: {fileID: 3351609458054606146}
   bulletPrefab: {fileID: -6574118183856109211, guid: 9a371a71a1ecef948aa38211186b5555, type: 3}
   shotDelayTime: 1
+  Col: {fileID: 0}
   <MaxHP>k__BackingField: 3
+  SchetchikEnemy: {fileID: 0}
 --- !u!136 &9217138504994810977
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -587,7 +589,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8465869328267526569, guid: 9819122bebbd0264c80f915bead2aae1, type: 3}
+  - {fileID: 2100000, guid: 179555ab8bd66734b8c1ac67e84c7cbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
