@@ -7,14 +7,18 @@ using UnityEngine.SceneManagement;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
+    [SerializeField] GameObject Portal;
     public int DeatheScene;
     public float speed;
     private CharacterController controller;
     public int HP;
+    public int SchetchikEnemy;
+    //private int x;
 
 
     private void Start()
     {
+        Portal.SetActive(false);
         text.text = "Lives: " + HP;
         controller = GetComponent<CharacterController>();
         Cursor.lockState= CursorLockMode.Locked;
@@ -28,7 +32,7 @@ public class PlayerControl : MonoBehaviour
 
         Vector3 moveDir = transform.forward * verInput + transform.right * horInput;
 
-        moveDir.y -= 9.81f * Time.deltaTime;
+        //moveDir.y -= 9.81f * Time.deltaTime;
 
         controller.Move(moveDir * speed * Time.deltaTime);
 
@@ -36,8 +40,20 @@ public class PlayerControl : MonoBehaviour
         {
             SceneManager.LoadScene(DeatheScene);
         }
-    }
+        /*
+        if (SchetchikEnemy <= x)
+        {
+            Portal.SetActive(true);
+        }
+        */
 
+    }
+/*
+    public void EnemyKills()
+    {
+        x = x + 1;
+    }
+*/
     public void damageHP(int damage)
     {
         HP -= damage;
