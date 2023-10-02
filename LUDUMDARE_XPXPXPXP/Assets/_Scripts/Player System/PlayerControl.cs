@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
+    public int DeatheScene;
     public float speed;
     private CharacterController controller;
     public int HP;
@@ -33,7 +34,7 @@ public class PlayerControl : MonoBehaviour
 
         if (HP <= 0)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(DeatheScene);
         }
     }
 
